@@ -9,7 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (taskValue === "") return;
 
     const li = document.createElement("li");
-    li.textContent = taskValue;
+    li.innerText = taskValue;
+
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerText = "Delete"
+    deleteBtn.style.marginLeft="5px"
+    deleteBtn.onclick = function(){
+      li.remove();
+    }
+
+    li.appendChild(deleteBtn)
     taskList.appendChild(li);
     taskInput.value = "";
   });
